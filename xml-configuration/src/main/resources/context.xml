@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- <bean/> definitions here -->
+
+	<!-- ### CONSTRUCTOR -->
+	<!-- Create bean with default constructor -->
+	<bean id="zipworker" class="beans.impl.ZipFileWorker" init-method="init"
+		destroy-method="destroy"></bean>
+
+	<!-- Create bean with constructor with primitives -->
+	<bean id="zipworker_constr_primitives" class="beans.impl.ZipFileWorker">
+		<constructor-arg value="10" type="int"></constructor-arg>
+		<constructor-arg value="custom_name"></constructor-arg>
+	</bean>
+
+	<!-- Create bean with constructor with object -->
+	<bean id="zipworker_constr_with_object" class="beans.impl.ZipFileWorker">
+		<constructor-arg>
+			<ref bean="loader" />
+		</constructor-arg>
+	</bean>
+
+	<!-- Create bean with constructor with list -->
+	<bean id="zipworker_constr_with_list" class="beans.impl.ZipFileWorker">
+		<constructor-arg>
+			<list>
+				<value>"consumer_1"</value>
+				<value>"consumer_2"</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- Create bean with constructor with all items -->
+	<bean id="zipworker_constr_with_all" class="beans.impl.ZipFileWorker">
+		<constructor-arg value="10" type="int"></constructor-arg>
+		<constructor-arg value="name"></constructor-arg>
+		<constructor-arg>
+			<ref bean="loader" />
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>"consumer_1"</value>
+				<value>"consumer_2"</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="zipworker_constr_inherit" class="beans.impl.ZipFileWorker"
+		parent="zipworker">
+	</bean>
+
+	<bean id="loader" class="beans.impl.FtpFileLoader">
+	</bean>
+
+	<bean id="loader_torrent" class="beans.impl.TorrentLoader"
+		primary="true">
+	</bean>
+
+	<bean id="default_loader" class="beans.impl.Loader"
+		autowire-candidate="false">
+	</bean>
+
+	<!-- ### SETTER -->
+	<bean id="zipworker_setter" class="beans.impl.ZipFileWorker">
+		<property name="count" value="111"></property>
+	</bean>
+
+	<bean id="zipworker_setter_object" class="beans.impl.ZipFileWorker">
+		<property name="loader" ref="loader"></property>
+	</bean>
+
+	<bean id="zipworker_setter_list" class="beans.impl.ZipFileWorker">
+		<property name="consumers">
+			<list>
+				<value>"c_1"</value>
+				<value>"c_2"</value>
+				<value>"c_3"</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- ### Factory Method -->
+	<bean id="zipworker_factory" class="beans.impl.ZipFileWorker"
+		factory-method="getInstance">
+	</bean>
+
+	<!-- ### Scope -->
+	<bean id="zipworker_singleton" class="beans.impl.ZipFileWorker"
+		scope="singleton"></bean>
+	<bean id="zipworker_prototype" class="beans.impl.ZipFileWorker"
+		scope="prototype"></bean>
+
+	<!-- ### AUTO-WIRED -->
+	<!-- ZipFileWorker has property 'private loader', so it autowired by name 
+		with bean id="loader" eq ZipFileWorker.loader -->
+	<bean id="zipworker_Auto-Wired_ByName" class="beans.impl.ZipFileWorker"
+		autowire="byName">
+	</bean>
+
+	<!-- ZipFileWorker has property 'private loader' of FileLoader type, so 
+		it autowired by type with bean id="loader" -->
+	<bean id="zipworker_Auto-Wired_ByType" class="beans.impl.ZipFileWorker"
+		autowire="byType">
+	</bean>
+
+	<!-- ZipFileWorker has property 'private loader' of FileLoader type, so 
+		it autowired by type with bean id="loader" -->
+	<bean id="zipworker_Auto-Wired_ByConstr" class="beans.impl.ZipFileWorker"
+		autowire="constructor">
+	</bean>
+
+	<!-- ### SpEL -->
+	<bean id="zipworker_SpEL" class="beans.impl.ZipFileWorker">
+		<property name="count" value="#{5*5}"></property>
+		<property name="name"
+			value="#{'SpEL: ' + zipworker.getHi()?.toLowerCase() + T(java.lang.Math).random()}"></property>
+	</bean>
+
+</beans>
