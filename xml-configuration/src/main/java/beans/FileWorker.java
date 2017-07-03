@@ -11,6 +11,8 @@ public interface FileWorker {
 	public void setCount(int count);
 
 	public String getName();
+	
+	public FileLoader getLoader();
 
 	public void init();
 

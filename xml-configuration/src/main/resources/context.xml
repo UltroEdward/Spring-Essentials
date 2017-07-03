@@ -120,4 +120,16 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 			value="#{'SpEL: ' + zipworker.getHi()?.toLowerCase() + T(java.lang.Math).random()}"></property>
 	</bean>
 
+	<!-- ### Replaced-methods -->
+	<bean id="zipworker_replace_method" class="beans.impl.ZipFileWorker">
+		<replaced-method name="toString" replacer="toStrinReplacer" />
+	</bean>
+
+	<bean id="zipworker_replace_method_read" class="beans.impl.ZipFileWorker">
+		 <lookup-method name="getLoader" bean="loader" /> 
+	</bean>
+
+	<bean id="toStrinReplacer" class="beans.impl.ToStrinReplacer"></bean>
+
+
 </beans>

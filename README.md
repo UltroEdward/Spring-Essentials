@@ -20,3 +20,5 @@ Spring app demo configured with xml-configuration
 
 -beans configured as parent  
 -beans configured as child  
+
+-replaced methods  

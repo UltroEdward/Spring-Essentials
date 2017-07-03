@@ -66,11 +66,18 @@ public class Main {
 
 		worker = (FileWorker) context.getBean("zipworker_Auto-Wired_ByConstr");
 		System.out.println("Auto-Wired_ByConstr " + worker.toString());
-		
+
 		// Spring EL
 		worker = (FileWorker) context.getBean("zipworker_SpEL");
 		System.out.println("zipworker_SpEL " + worker.toString());
-		
+
+		// Method replace
+		worker = (FileWorker) context.getBean("zipworker_replace_method");
+		System.out.println("zipworker_replace_method " + worker.toString());
+
+		worker = (FileWorker) context.getBean("zipworker_replace_method_read");
+		System.out.println("zipworker_replace_method_read " + worker.toString());
+		System.out.println("replaced method: " + worker.getLoader());
 
 		((ClassPathXmlApplicationContext) context).close();
 	}
