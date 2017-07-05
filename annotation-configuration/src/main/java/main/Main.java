@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,7 @@ public class Main {
 	@Autowired
 	@Qualifier("zipfileworker")
 	private FileWorker worker2;
-
+	
 	@Value("1111")
 	private int val;
 	
@@ -46,7 +47,7 @@ public class Main {
 		System.out.println("Invoke autowired item can be null: " + main.worker1.toString());
 
 		System.out.println("Invoke autowired item qualified by name: " + main.worker2.toString());
-
+		
 		System.out.println("Invoke autowired item @value annotation: " + main.val);
 
 		System.out.println("Invoke autowired item @value annotation + SpEL: " + main.SpEl);

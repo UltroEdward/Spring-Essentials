@@ -7,20 +7,16 @@ Spring app demo configured with xml-configuration
 -beans configured with setters  
 -beans configured with factory method  
 
--beans with singleton scope  
--beans with prototype scope  
+-beans with singleton/prototype scopes  
 
 -bean auto-wired by type  
 -bean auto-wired by name  
 -bean auto-wired by constructor  
 
--beans configured with SpEL  
-
--beans configured with init-method  
--beans configured with destroy-method  
-
--beans configured as parent  
--beans configured as child  
+-beans configured with SpEL 
+ 
+-beans configured with init-method/destroy-methods  
+-beans configured as parent/child  
 
 -replaced methods  
 
@@ -32,9 +28,11 @@ Annotaions ONLY based configuration
 -beans with value (@Value("name"))  
 -beans with value (@Value("name")) + SpEL  
 
--beans with @PreDestroy method  
--beans with @@PostConstruct method  
+-beans with @PreDestroy/@PostConstruct methods
+
+-beans with @Scope singleton/prototype
 
 -xml base config with: context:annotation-config  
 -xml base config with: context:component-scan  
--xml base config with: context:include-filter  
+-xml base config with: context:include-filter 
+ 
