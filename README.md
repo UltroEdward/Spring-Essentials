@@ -2,6 +2,7 @@
 
 ## xml-configuration  
 Spring app demo configured with xml-configuration  
+
 -beans configured with constructor  
 -beans configured with setters  
 -beans configured with factory method  
@@ -22,3 +23,18 @@ Spring app demo configured with xml-configuration
 -beans configured as child  
 
 -replaced methods  
+
+## annotation-configuration   
+Annotaions ONLY based configuration  
+
+-beans with autowiring (@Autowired)  
+-beans with qualifier (@Qualifier("name"))  
+-beans with value (@Value("name"))  
+-beans with value (@Value("name")) + SpEL  
+
+-beans with @PreDestroy method  
+-beans with @@PostConstruct method  
+
+-xml base config with: context:annotation-config  
+-xml base config with: context:component-scan  
+-xml base config with: context:include-filter  
