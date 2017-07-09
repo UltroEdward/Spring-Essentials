@@ -48,7 +48,7 @@ Annotaions ONLY based configuration
 
 ## component-lifecycle   
 
--BeanPostProcessor implementation:
+-BeanPostProcessor implementation:  
 postProcessBeforeInitialization (for logging)  
 postProcessAfterInitialization (with new implemented @UpperCase)  
   
