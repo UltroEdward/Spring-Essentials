@@ -35,4 +35,16 @@ Annotaions ONLY based configuration
 -xml base config with: context:annotation-config  
 -xml base config with: context:component-scan  
 -xml base config with: context:include-filter 
+
+## java-configuration (xml removed)
  
+-configured with @ComponentScan
+
+-beans form @Bean annotation  
+-beans with @Scope singleton/prototype
+ 
+-beans configured with init-method/destroy-methods  
+-beans with @Scope singleton/prototype  
+
+
+  
