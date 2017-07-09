@@ -6,7 +6,6 @@ public class Loader  implements FileLoader {
 
 	@Override
 	public String getFile() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

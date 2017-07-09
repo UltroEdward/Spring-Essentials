@@ -46,5 +46,9 @@ Annotaions ONLY based configuration
 -beans configured with init-method/destroy-methods  
 -beans with @Scope singleton/prototype  
 
+## component-lifecycle   
 
+-BeanPostProcessor implementation:
+postProcessBeforeInitialization (for logging)  
+postProcessAfterInitialization (with new implemented @UpperCase)  
   
