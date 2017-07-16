@@ -29,7 +29,7 @@ public class Prototype implements InitializingBean, DisposableBean, BeanNameAwar
 	private String str;
 
 	public Prototype() {
-		System.out.println(this.getClass().getSimpleName() + " :constructor");
+		System.out.println(this.getClass().getSimpleName() + " : constructor");
 	}
 
 	public int getCount() {

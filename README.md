@@ -85,3 +85,9 @@ Annotaions ONLY based configuration
 -BeanPostProcessor.postProcessAfterInitialization  
 -@PreDestroy method  
 -DisposableBean.destroy  
+
+## spring events
+
+-Create custom event
+-Publish custom event  
+-Receiving custom event   
