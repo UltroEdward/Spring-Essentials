@@ -46,9 +46,42 @@ Annotaions ONLY based configuration
 -beans configured with init-method/destroy-methods  
 -beans with @Scope singleton/prototype  
 
-## component-lifecycle   
+## bean-lifecycle     
 
--BeanPostProcessor implementation:  
-postProcessBeforeInitialization (for logging)  
-postProcessAfterInitialization (with new implemented @UpperCase)  
-  
+#Singleton:  
+-BeanFactoryPostProcessor.postProcessBeanFactory (manipulation bean definitions)  
+
+-Object constructor  
+-BeanNameAware.setBeanName  
+-BeanPostProcessor.postProcessBeforeInitialization  
+-@PostConstruct method  
+-InitializingBean.afterPropertiesSet  
+-BeanPostProcessor.postProcessAfterInitialization  
+-ApplicationListener.onApplicationEvent(ContextRefreshedEvent) //context build finishe, refreshed  
+
+-@PreDestroy method  
+-DisposableBean.destroy  
+
+#Prototype:
+-BeanFactoryPostProcessor.postProcessBeanFactory (manipulation bean definitions)  
+-ApplicationListener.onApplicationEvent(ContextRefreshedEvent) //context build finished, refreshed  
+
+-Object constructor  
+-BeanNameAware.setBeanName  
+-BeanPostProcessor.postProcessBeforeInitialization  
+-@PostConstruct method  
+-InitializingBean.afterPropertiesSet  
+-BeanPostProcessor.postProcessAfterInitialization  
+
+#Singleton-Lazy:  
+-BeanFactoryPostProcessor.postProcessBeanFactory (manipulation bean definitions)  
+-ApplicationListener.onApplicationEvent(ContextRefreshedEvent) //context build finished, refreshed  
+
+-Object constructor  	
+-BeanNameAware.setBeanName  
+-BeanPostProcessor.postProcessBeforeInitialization  
+-@PostConstruct method  
+-InitializingBean.afterPropertiesSet  
+-BeanPostProcessor.postProcessAfterInitialization  
+-@PreDestroy method  
+-DisposableBean.destroy  
