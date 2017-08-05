@@ -87,7 +87,11 @@ Annotaions ONLY based configuration
 -DisposableBean.destroy  
 
 ## spring events
-
 -Create custom event
 -Publish custom event  
--Receiving custom event   
+-Receiving custom event  
+
+## spring AOP  
+-create aspect  
+-before and around invocation
+
